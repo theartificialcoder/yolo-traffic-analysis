@@ -1,0 +1,33 @@
+# Ignore model files
+*.pt
+*.onnx
+*.engine
+
+# Ignore video files
+*.mov
+*.mp4
+*.avi
+
+# Ignore image files and extracted frames
+*.jpg
+*.jpeg
+*.png
+*.Identifier
+frames_for_roboflow/
+
+# Ignore output directories from YOLO and other tools
+runs/
+
+# Ignore Python virtual environment folders (good practice)
+/venv/
+/env/
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore dataset files downloaded from Roboflow
+roboflow.zip
+# Add your specific dataset folder names if they are in the project directory
+Your-Dataset-Folder-Name/
