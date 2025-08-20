@@ -15,6 +15,10 @@
 *.Identifier
 frames_for_roboflow/
 
+# Ignore datasets
+datasets/
+testvideos/
+
 # Ignore output directories from YOLO and other tools
 runs/
 
@@ -28,6 +32,6 @@ __pycache__/
 *.pyc
 
 # Ignore dataset files downloaded from Roboflow
-roboflow.zip
+*.zip
 # Add your specific dataset folder names if they are in the project directory
 Your-Dataset-Folder-Name/

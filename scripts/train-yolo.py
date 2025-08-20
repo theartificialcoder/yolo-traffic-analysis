@@ -10,7 +10,7 @@ from ultralytics import YOLO
 # 1. BASE MODEL FOR TRANSFER LEARNING
 #    Choose the pre-trained model to start from. You selected 'yolov8l.pt' for high accuracy.
 #    Options: 'yolov8n.pt', 'yolov8s.pt', 'yolov8m.pt', 'yolov8l.pt', 'yolov8x.pt'
-BASE_MODEL = 'yolov8l.pt'
+BASE_MODEL = 'yolov8s.pt'
 
 # 2. DATASET CONFIGURATION FILE
 #    Path to your dataset.yaml file. This file tells YOLO where your data is and what the classes are.
@@ -21,15 +21,15 @@ DATASET_CONFIG = '../datasets/dataset.yaml'
 #    - imgsz: The image size the model will be trained on. 640 is standard for YOLOv8.
 #             Larger sizes (e.g., 1280) can improve accuracy for small objects but require more VRAM.
 EPOCHS = 100
-IMAGE_SIZE = 1280
-
+IMAGE_SIZE = 640
+BATCH_SIZE = 8 # Adjust based on your GPU memory. 16 is a good starting point for most GPUs.
 # 4. OUTPUT CONFIGURATION
 #    - project: The name of the main output directory for all experimental runs.
 #    - experiment_name: A unique, descriptive name for this specific training run. This will also be
 #                       used for your final, cleaned model file name.
 #    - final_model_dir: The clean, top-level directory where your best model will be saved.
 PROJECT_NAME = 'testrun'
-EXPERIMENT_NAME = 'yolov8l_traffic_default' # Descriptive name for the run
+EXPERIMENT_NAME = 'yolov8s_traffic_default' # Descriptive name for the run
 FINAL_MODEL_DIR = '../models'
 
 # =================================================================================================
@@ -62,6 +62,7 @@ def train_model():
         data=DATASET_CONFIG,
         epochs=EPOCHS,
         imgsz=IMAGE_SIZE,
+        batch = BATCH_SIZE,
         project=PROJECT_NAME,
         name=EXPERIMENT_NAME,
         exist_ok=True  # Allows overwriting a previous run with the same name
