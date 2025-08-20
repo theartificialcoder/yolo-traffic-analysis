@@ -14,22 +14,22 @@ BASE_MODEL = 'yolov8l.pt'
 
 # 2. DATASET CONFIGURATION FILE
 #    Path to your dataset.yaml file. This file tells YOLO where your data is and what the classes are.
-DATASET_CONFIG = '../datasets/traffic_dataset_v1/dataset.yaml'
+DATASET_CONFIG = '../datasets/dataset.yaml'
 
 # 3. TRAINING HYPERPARAMETERS
 #    - epochs: Number of times to loop through the entire dataset. 100 is a good starting point.
 #    - imgsz: The image size the model will be trained on. 640 is standard for YOLOv8.
 #             Larger sizes (e.g., 1280) can improve accuracy for small objects but require more VRAM.
 EPOCHS = 100
-IMAGE_SIZE = 640
+IMAGE_SIZE = 1280
 
 # 4. OUTPUT CONFIGURATION
 #    - project: The name of the main output directory for all experimental runs.
 #    - experiment_name: A unique, descriptive name for this specific training run. This will also be
 #                       used for your final, cleaned model file name.
 #    - final_model_dir: The clean, top-level directory where your best model will be saved.
-PROJECT_NAME = 'training_runs'
-EXPERIMENT_NAME = 'yolov8l_traffic_v1_100e' # Descriptive name for the run
+PROJECT_NAME = 'testrun'
+EXPERIMENT_NAME = 'yolov8l_traffic_default' # Descriptive name for the run
 FINAL_MODEL_DIR = '../models'
 
 # =================================================================================================
