@@ -1,5 +1,4 @@
 # Ignore model files
-*.pt
 *.onnx
 *.engine
 
