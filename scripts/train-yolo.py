@@ -10,7 +10,7 @@ from ultralytics import YOLO
 # 1. BASE MODEL FOR TRANSFER LEARNING
 #    Choose the pre-trained model to start from. You selected 'yolov8l.pt' for high accuracy.
 #    Options: 'yolov8n.pt', 'yolov8s.pt', 'yolov8m.pt', 'yolov8l.pt', 'yolov8x.pt'
-BASE_MODEL = 'yolov8s.pt'
+BASE_MODEL = 'yolov8m.pt'
 
 # 2. DATASET CONFIGURATION FILE
 #    Path to your dataset.yaml file. This file tells YOLO where your data is and what the classes are.
@@ -22,14 +22,14 @@ DATASET_CONFIG = '../datasets/dataset.yaml'
 #             Larger sizes (e.g., 1280) can improve accuracy for small objects but require more VRAM.
 EPOCHS = 100
 IMAGE_SIZE = 640
-BATCH_SIZE = 8 # Adjust based on your GPU memory. 16 is a good starting point for most GPUs.
+BATCH_SIZE = 24 # Adjust based on your GPU memory. 16 is a good starting point for most GPUs.
 # 4. OUTPUT CONFIGURATION
 #    - project: The name of the main output directory for all experimental runs.
 #    - experiment_name: A unique, descriptive name for this specific training run. This will also be
 #                       used for your final, cleaned model file name.
 #    - final_model_dir: The clean, top-level directory where your best model will be saved.
 PROJECT_NAME = 'testrun'
-EXPERIMENT_NAME = 'yolov8s_traffic_default' # Descriptive name for the run
+EXPERIMENT_NAME = 'yolov8m_traffic_default' # Descriptive name for the run
 FINAL_MODEL_DIR = '../models'
 
 # =================================================================================================
