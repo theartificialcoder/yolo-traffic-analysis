@@ -6,8 +6,11 @@ from ultralytics import YOLO
 
 # 1. PATH TO THE MODEL YOU WANT TO VALIDATE
 #    This should be the 'best.pt' file from your training run.
-MODEL_PATH = 'testrun/yolov8s_traffic_default/weights/best.pt'  # Or '../runs/detect/.../weights/best.pt'
 
+PROJECT_NAME = 'valrun'
+EXPERIMENT_NAME = 'yolov8s' # Descriptive name for the run
+
+MODEL_PATH = 'testrun/yolov8s_traffic_default/weights/best.pt'  # Or '../runs/detect/.../weights/best.pt'
 # 2. PATH TO YOUR DATASET CONFIGURATION FILE
 DATASET_CONFIG = '../datasets/dataset.yaml'
 
@@ -29,6 +32,8 @@ def validate_model():
     # Run the validation
     # The 'val' method returns a metrics object with all the performance data.
     metrics = model.val(
+        project=PROJECT_NAME,
+        name=EXPERIMENT_NAME,
         data=DATASET_CONFIG,
         imgsz=IMAGE_SIZE,
         split='val'  # Specify that you want to run on the validation set
