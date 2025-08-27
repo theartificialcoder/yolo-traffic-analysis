@@ -110,11 +110,29 @@ def plot_image_resolutions(df, filename):
 def plot_brightness_contrast(df, filename):
     """
     Generates a jointplot showing the relationship between image brightness and contrast.
-    A jointplot is ideal as it shows both individual distributions and their correlation.
+    
+    UPDATED: Uses kind='scatter' with alpha transparency, which is more robust
+    to datasets containing images with zero contrast, preventing ZeroDivisionError.
     """
     print(f"  - Generating Brightness vs. Contrast plot...")
     unique_images = df[['image_path', 'brightness', 'contrast']].drop_duplicates()
-    g = sns.jointplot(data=unique_images, x='brightness', y='contrast', kind='hex', cmap='viridis', height=8)
+
+    # --- SAFETY CHECK ---
+    # Before plotting, ensure there is more than one unique value to avoid errors.
+    if unique_images['brightness'].nunique() <= 1 or unique_images['contrast'].nunique() <= 1:
+        print(f"  - ⚠️ Skipping Brightness vs. Contrast plot: Not enough variance in data.")
+        return
+
+    # Use a scatter plot which is robust to zero-variance data, with alpha for density.
+    g = sns.jointplot(
+        data=unique_images, 
+        x='brightness', 
+        y='contrast', 
+        kind='scatter', # Changed from 'hex' to 'scatter'
+        height=8,
+        joint_kws={'alpha': 0.2, 's': 20} # Add transparency and size to scatter points
+    )
+    
     g.fig.suptitle('Brightness vs. Contrast (Full Dataset)', y=1.01)
     g.set_axis_labels('Average Brightness (0-255)', 'Contrast (Std. Dev. of Pixels)')
     plt.tight_layout()
