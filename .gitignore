@@ -8,9 +8,6 @@
 *.avi
 
 # Ignore image files and extracted frames
-*.jpg
-*.jpeg
-*.png
 *.Identifier
 frames_for_roboflow/
 
