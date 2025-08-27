@@ -29,7 +29,7 @@ BATCH_SIZE = 24 # Adjust based on your GPU memory. 16 is a good starting point f
 #                       used for your final, cleaned model file name.
 #    - final_model_dir: The clean, top-level directory where your best model will be saved.
 PROJECT_NAME = 'testrun'
-EXPERIMENT_NAME = 'yolov8s_traffic_default' # Descriptive name for the run
+EXPERIMENT_NAME = 'yolov8m_traffic_default' # Descriptive name for the run
 FINAL_MODEL_DIR = '../models'
 
 # =================================================================================================
