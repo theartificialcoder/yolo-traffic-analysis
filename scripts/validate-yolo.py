@@ -8,9 +8,9 @@ from ultralytics import YOLO
 #    This should be the 'best.pt' file from your training run.
 
 PROJECT_NAME = 'valrun'
-EXPERIMENT_NAME = 'yolov8s' # Descriptive name for the run
+EXPERIMENT_NAME = 'yolov8m' # Descriptive name for the run
 
-MODEL_PATH = 'testrun/yolov8s_traffic_default/weights/best.pt'  # Or '../runs/detect/.../weights/best.pt'
+MODEL_PATH = 'testrun/yolov8m_traffic_default/weights/best.pt'  # Or '../runs/detect/.../weights/best.pt'
 # 2. PATH TO YOUR DATASET CONFIGURATION FILE
 DATASET_CONFIG = '../datasets/dataset.yaml'
 
